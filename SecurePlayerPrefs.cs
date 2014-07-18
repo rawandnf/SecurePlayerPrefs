@@ -14,17 +14,17 @@ using System.Text;
  */
 public class SecurePlayerPrefs {
 
-  /*
+	/*
    * The key is splited to three parts:
-   *     - The first part.
+   *     - The prefix, first part.
    *     - Three randomly generated characters for each device.
-   *     - The appendix, the end part of the key.
+   *     - The suffix, the end part of the key.
    * These constants are used in storing the random part for each device,
    * And for the prefs it uses the random number instead of PRIVATE_KEY_RAND.
    */
-	private static readonly string PRIVATE_KEY = "abcd";
-	private static readonly string PRIVATE_KEY_APPENDIX = "h";
+	private static readonly string PRIVATE_KEY_PREFIX = "abcd";
 	private static readonly string PRIVATE_KEY_RAND = "efg";
+	private static readonly string PRIVATE_KEY_SUFFIX = "h";
 
 	// The private key of DES encryption.
 	private static string privateKey;
@@ -50,14 +50,14 @@ public class SecurePlayerPrefs {
 	 */
 	public static void Init() {
 		if(HasKey(RAND_KEY)) {
-			privateKey = PRIVATE_KEY + PRIVATE_KEY_RAND + PRIVATE_KEY_APPENDIX;
+			privateKey = PRIVATE_KEY_PREFIX + PRIVATE_KEY_RAND + PRIVATE_KEY_SUFFIX;
 			privateKey = GetString(RAND_KEY);
-			privateKey = PRIVATE_KEY + privateKey + PRIVATE_KEY_APPENDIX;
+			privateKey = PRIVATE_KEY_PREFIX + privateKey + PRIVATE_KEY_SUFFIX;
 		} else {
 			int rand = UnityEngine.Random.Range(100, 1000);
-			privateKey = PRIVATE_KEY + PRIVATE_KEY_RAND + PRIVATE_KEY_APPENDIX;
+			privateKey = PRIVATE_KEY_PREFIX + PRIVATE_KEY_RAND + PRIVATE_KEY_SUFFIX;
 			SetInt(RAND_KEY, rand);
-			privateKey = PRIVATE_KEY + rand + PRIVATE_KEY_APPENDIX;
+			privateKey = PRIVATE_KEY_PREFIX + rand + PRIVATE_KEY_SUFFIX;
 			/*
 			 * Add copying PlayerPrefs to SecurePlayerPrefs code here.
 			 * See the example at GitHub. www.github.com/rawandnf/SecurePlayerPrefs
