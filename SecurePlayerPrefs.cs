@@ -80,6 +80,7 @@ public class SecurePlayerPrefs {
 	 *
 	 * Basically translates the prefs to secure ones.
 	 * @param keynames Is the list of keys with old and new name, [old name][new name][type].
+	 * @param deleteOldKeys Should it delete the old keys.
 	 */
 	private static void securePlayerPrefs(string[,] keynames, bool deleteOldKeys) {
 		for (int i = 0; i < keynames.GetLength(0); i++) {
