@@ -210,7 +210,7 @@ Parameters:
 You can also leave the `defaultValue` parameter, and in this case _0_ will be set as default.
 
 
-### public static float GetFloat(String key, float defaultValue)
+### GetFloat(String key, float defaultValue)
 _public static float GetFloat(String key, float defaultValue = 0.0f)_
 
 
