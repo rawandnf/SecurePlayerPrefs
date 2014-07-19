@@ -18,7 +18,34 @@ with just a little bit of change you can go ahead and use this one!
 See [PlayerPrefs](http://docs.unity3d.com/ScriptReference/PlayerPrefs.html) Docs of Unity3d if you are not familiar with it.
 
 
-## How to use
+## Contents
+- [How To Use](#how-to-use)
+  - [Usage Example](#usage-example)
+  - [Usage](#usage)
+  - [Setup](#setup)
+  - [Moving from PlayerPrefs to SecurePlayerPrefs](#moving-from-playerprefs-to-secureplayerprefs)
+- [Methods](#methods)
+  - [Init()](#init)
+  - [isInitialized()](#isinitialized)
+  - [setLogErrorsEnabled(bool state)](#setlogerrorsenabledbool-state)
+  - [SetString(string key, string val)](#setstringstring-key-string-val)
+  - [SetFloat(string key, float val)](#setfloatstring-key-float-val)
+  - [SetInt(string key, int val)](#setintstring-key-int-val)
+  - [SetBool(string key, bool val)](#setboolstring-key-bool-val)
+  - [GetString(String key, String defaultValue = "")](#getstringstring-key-string-defaultvalue--)
+  - [GetInt(String key, int defaultValue = 0)](#getintstring-key-int-defaultvalue--0)
+  - [GetFloat(String key, float defaultValue)](#getfloatstring-key-float-defaultvalue)
+  - [GetBool(string key, bool defaultValue = false)](#getboolstring-key-bool-defaultvalue--false)
+  - [DeleteKey(string key)](#deletekeystring-key)
+  - [DeleteAll()](#deleteall)
+  - [HasKey(string key)](#haskeystring-key)
+  - [Save()](#save)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
+- [License](#license)
+----------
+
+## How To Use
 
 ### Usage Example
 Before diving into details, i'll show you an example and hopefully you'll get what you need. But its also important to know how exactly everything works. Its simple as reading the document bellow ;).
@@ -39,7 +66,7 @@ Before diving into details, i'll show you an example and hopefully you'll get wh
 
 ### Usage
 Somewhere before you ever use SecurePlayerPrefs, initialize the keys.
-For this you only need to run `SecurePlayerPrefs.Init()` in an `Awake` of `Start` function in
+For this you only need to run `SecurePlayerPrefs.Init()` in an `Awake` or `Start` function in
 your project or scene.
 ```csharp
 void Start () {
